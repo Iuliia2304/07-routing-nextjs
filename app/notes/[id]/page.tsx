@@ -4,7 +4,7 @@ import NoteDetailsClient from "./NoteDetails.client";
 import css from "./NoteDetails.module.css";
 
 export default async function NoteDetailsPage({ params }: { params: { id: string } }) {
-  const { id } = params; // без await!
+  const { id } = await params;
 
   const qc = new QueryClient();
 
@@ -21,6 +21,5 @@ export default async function NoteDetailsPage({ params }: { params: { id: string
     </main>
   );
 }
-
 
 

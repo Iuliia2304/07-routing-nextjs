@@ -16,18 +16,20 @@ export default function NoteDetailsClient({ id }: { id: string }) {
   if (isLoading) return <p>Loading, please wait...</p>;
   if (error || !note) return <p>Something went wrong.</p>;
 
-  return (
-    <div className={css.container}>
-      <div className={css.item}>
-        <div className={css.header}>
-          <h2>{note.title}</h2>
-        </div>
-        <p className={css.content}>{note.content}</p>
-        <p className={css.date}>
-          Created: {new Date(note.createdAt).toLocaleDateString()}
-        </p>
+return (
+  <div className={css.container}>
+    <div className={css.item}>
+      <div className={css.header}>
+        <h2>{note.title}</h2>
       </div>
+      <p className={css.content}>{note.content}</p>
+      <p className={css.tag}>Tag: {note.tag}</p>
+      <p className={css.date}>
+        Created: {new Date(note.createdAt).toLocaleDateString()}
+      </p>
     </div>
-  );
+  </div>
+);
+
 }
 
