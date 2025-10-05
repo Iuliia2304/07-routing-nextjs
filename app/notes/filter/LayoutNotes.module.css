@@ -1,0 +1,48 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 6px 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: #333;
+  color: #fff;
+  padding-left: 24px;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  background: #fafafa;
+}
