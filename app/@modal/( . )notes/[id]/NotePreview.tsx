@@ -31,4 +31,3 @@ export default function NotePreview({ id }: { id: string }) {
     </Modal>
   );
 }
-

@@ -7,7 +7,6 @@ export default async function NoteDetailsPage({ params }: { params: { id: string
   const { id } = await params;
 
   const qc = new QueryClient();
-
   await qc.prefetchQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
@@ -21,5 +20,6 @@ export default async function NoteDetailsPage({ params }: { params: { id: string
     </main>
   );
 }
+
 
 
