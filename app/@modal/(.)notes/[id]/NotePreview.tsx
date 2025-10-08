@@ -20,6 +20,7 @@ export default function NotePreview({ id }: { id: string }) {
 
   return (
     <Modal isOpen={true} onClose={() => router.back()}>
+
       <div className={css.item}>
         <h2>{note.title}</h2>
         <p>{note.content}</p>
@@ -31,3 +32,4 @@ export default function NotePreview({ id }: { id: string }) {
     </Modal>
   );
 }
+
