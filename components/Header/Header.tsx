@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import TagsMenu from "./TagsMenu";
+import TagsMenu from "../TagsMenu/TagsMenu";
 import css from "./Header.module.css";
 
 export default function Header() {
