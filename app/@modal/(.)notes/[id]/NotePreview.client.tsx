@@ -13,16 +13,39 @@ export default function NotePreview({ id }: { id: string }) {
   const { data: note, isLoading, error } = useQuery<Note>({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
+    refetchOnMount: false, 
   });
 
-  if (isLoading) return null;
-  if (error || !note) return null;
+  if (isLoading) {
+    return (
+      <Modal isOpen={true} onClose={() => router.back()}>
+        <div className={css.item}>
+          <p>Loading, please wait...</p>
+          <button onClick={() => router.back()}>Close</button>
+        </div>
+      </Modal>
+    );
+  }
+
+  if (error || !note) {
+    return (
+      <Modal isOpen={true} onClose={() => router.back()}>
+        <div className={css.item}>
+          <p>Something went wrong.</p>
+          <button onClick={() => router.back()}>Close</button>
+        </div>
+      </Modal>
+    );
+  }
 
   return (
     <Modal isOpen={true} onClose={() => router.back()}>
-
       <div className={css.item}>
-        <h2>{note.title}</h2>
+        <div className={css.header}>
+          <h2>{note.title}</h2>
+          <button onClick={() => router.back()}>Close</button>
+        </div>
+
         <p>{note.content}</p>
         <p className={css.date}>
           Created: {new Date(note.createdAt).toLocaleDateString()}

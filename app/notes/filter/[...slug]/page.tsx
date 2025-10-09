@@ -1,12 +1,12 @@
-// app/notes/filter/[...slug]/page.tsx
+
 import { QueryClient, dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
 import css from "./NotesPage.module.css";
 
-export default async function NotesPage({ params }: { params: Promise<{ slug?: string[] }> }) {
+export default async function NotesPage({ params }: { params: Promise<{ slug: string[] } > }) {
   const { slug } = await params; 
-  const tag = slug?.[0] === "All" ? undefined : slug?.[0]; 
+  const tag = slug?.[0] === "All" ? undefined : slug[0]; 
 
   const qc = new QueryClient();
   await qc.prefetchQuery({
